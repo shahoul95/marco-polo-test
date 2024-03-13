@@ -1,46 +1,29 @@
-# Getting Started with Create React App
+# ENVIRONNEMENT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Installer la version 21 de node avec : nvm use 21
+Installer npm install --global yarn
 
-## Available Scripts
+# Explication
 
-In the project directory, you can run:
+Fonction App() : Déclare les états locaux utilisant useState pour stocker différentes valeurs nécessaires au jeu, telles que la taille de la grille, les ratios bloqués/occupés, les coordonnées des cases, etc.
 
-### `yarn start`
+Fonction generateCoordinates() : Cette fonction génère les coordonnées du jeu en fonction des paramètres actuels de la grille, du ratio bloqué et du ratio occupé. Elle utilise la fonction calculateCoordinates pour calculer les coordonnées et met à jour les états en conséquence. Fonction onPlay() :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Cette fonction est appelée lorsqu'on clique sur le bouton "Play". Elle utilise setInterval pour exécuter la fonction step() à intervalles réguliers. Elle arrête l'intervalle lorsque toutes les cases bloquées ont été trouvées.
 
-The page will reload if you make edits.\
+Fonction step() :
+
+Cette fonction effectue une étape du jeu :
+
+Elle détermine la prochaine case à explorer. Calcule la pénalité et la distance jusqu'à la prochaine case. Met à jour les états en conséquence.
+
+Fonction resetGame() : Cette fonction réinitialise le jeu en réinitialisant tous les états. Rendu JSX :
+
+Affiche l'interface utilisateur avec des éléments HTML et des éléments de formulaire pour ajuster les paramètres du jeu. Utilise le composant Grid pour afficher la grille de jeu. Les boutons "Play" et "Reset" déclenchent les fonctions correspondantes lorsque l'utilisateur clique dessus.
+
+yarn start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+The page will reload if you make edits.
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
